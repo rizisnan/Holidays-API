@@ -14,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Home extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private Fragment selectedFragement;
+    private Fragment selectedFragement = new HolidaysFragment();
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -24,6 +24,8 @@ public class Home extends AppCompatActivity implements BottomNavigationView.OnNa
 
         bottomNavigationView = findViewById(R.id.home_btmnav);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
+        loadFragment(selectedFragement);
     }
 
     @Override
@@ -41,7 +43,7 @@ public class Home extends AppCompatActivity implements BottomNavigationView.OnNa
 
 
         }
-        return false;
+        return loadFragment(selectedFragement);
     }
 
     private boolean loadFragment(Fragment selectedFragement) {

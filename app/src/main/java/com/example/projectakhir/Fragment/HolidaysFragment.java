@@ -1,6 +1,7 @@
 package com.example.projectakhir.Fragment;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,12 +10,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ToggleButton;
 
 import com.example.projectakhir.Adapter.HolidaysAdapter;
 import com.example.projectakhir.HolidaysModel.HolidaysItem;
@@ -32,9 +33,11 @@ public class HolidaysFragment extends Fragment {
     private HolidaysAdapter holidaysAdapter;
     private RecyclerView rvHolidays;
     private HolidayViewModel holidayViewModel;
+    private ToggleButton tglFavorite;
 
     public HolidaysFragment() {
         // Required empty public constructor
+
     }
 
 
@@ -42,7 +45,17 @@ public class HolidaysFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_holidays, container, false);
+        View v = inflater.inflate(R.layout.fragment_holidays, container, false);
+
+//        tglFavorite = v.findViewById(R.id.toggleButton);
+//        tglFavorite.setOnClickListener((new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
+        return v;
     }
 
     @Override
@@ -53,7 +66,7 @@ public class HolidaysFragment extends Fragment {
         holidaysAdapter.notifyDataSetChanged();
 
         rvHolidays = view.findViewById(R.id.fragment_rv);
-        rvHolidays.setLayoutManager(new GridLayoutManager(getContext(), 0));
+        rvHolidays.setLayoutManager(new GridLayoutManager(getContext(),1));
 
         holidayViewModel = new ViewModelProvider(this).get(HolidayViewModel.class);
         holidayViewModel.setListHolidays();

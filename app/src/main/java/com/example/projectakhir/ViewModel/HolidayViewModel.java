@@ -29,7 +29,7 @@ public class HolidayViewModel extends ViewModel {
             public void onResponse(Call<HolidaysResponse> call, Response<HolidaysResponse> response) {
                 HolidaysResponse responseHolidays = response.body();
                 if (responseHolidays != null && responseHolidays.getHolidays() != null){
-                    ArrayList<HolidaysItem> holidaysItems = responseHolidays.getHolidays();
+                    ArrayList<HolidaysItem> holidaysItems = responseHolidays.getHolidays().getHolidays();
                     listHolidays.postValue(holidaysItems);
                 }
             }

@@ -6,19 +6,19 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Dao
 public interface FavoriteDAO {
     @Insert
-    Long insertData(Favotite favotite);
+    Long insertData(Favorite favorite);
 
     @Query("Select * from favorite")
-    ArrayList<Favotite> getData(ArrayList<Favotite> list);
+    List<Favorite> getData(List<Favorite> list);
 
     @Update
-    int updateData(Favotite item);
+    int updateData(Favorite item);
 
     @Delete
-    void deleteData(Favotite item);
+    void deleteData(Favorite item);
 }

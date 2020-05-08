@@ -1,34 +1,22 @@
 package com.example.projectakhir.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projectakhir.Activity.Home;
 import com.example.projectakhir.Favorite.AppDatabase;
-import com.example.projectakhir.Favorite.Favotite;
-import com.example.projectakhir.Fragment.FavoriteFragment;
-import com.example.projectakhir.Fragment.HolidaysFragment;
+import com.example.projectakhir.Favorite.Favorite;
 import com.example.projectakhir.HolidaysModel.HolidaysItem;
 import com.example.projectakhir.R;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class HolidaysAdapter extends RecyclerView.Adapter<HolidaysAdapter.ViewHolder> {
 
@@ -70,7 +58,7 @@ public class HolidaysAdapter extends RecyclerView.Adapter<HolidaysAdapter.ViewHo
                 String holidays = Holidays;
                 String date = Date;
 
-                Favotite item = new Favotite();
+                Favorite item = new Favorite();
                 item.setDate(holidays);
                 item.setHolidays(date);
 

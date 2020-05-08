@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projectakhir.Favorite.Favotite;
+import com.example.projectakhir.Favorite.Favorite;
 import com.example.projectakhir.Fragment.FavoriteFragment;
 import com.example.projectakhir.R;
 
@@ -19,25 +19,25 @@ import java.util.List;
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
 
     private FavoriteListener favoriteListener;
-    private ArrayList<Favotite> favotiteList;
+    private List<Favorite> favoriteList;
 
     public Context context;
 
     public FavoriteAdapter(Context context) {
         this.favoriteListener = favoriteListener;
-        this.favotiteList = favotiteList;
+        this.favoriteList = favoriteList;
         this.context = context;
     }
 
     public FavoriteAdapter(FavoriteFragment favoriteFragment, FavoriteListener favoriteListener) {
     }
 
-    public ArrayList<Favotite> getFavorite(){
-        return favotiteList;
+    public List<Favorite> getFavorite(){
+        return (List<Favorite>) favoriteList;
     }
 
-    public void setFavorite(ArrayList<Favotite> favorite){
-        this.favotiteList = favotiteList;
+    public void setFavorite(List<Favorite> favorite){
+        this.favoriteList = favoriteList;
     }
 
 

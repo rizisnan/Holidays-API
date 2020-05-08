@@ -5,52 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.MainActivity">
+    tools:context=".Activity.MainActivity"
+    android:background="#C9263126">
 
     <TextView
-        android:layout_marginTop="250dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LOGIN"
-        android:layout_gravity="center"
-        android:textSize="40dp"/>
-
-    <EditText
-        android:layout_height="wrap_content"
+        android:id="@+id/btnNext"
         android:layout_width="match_parent"
-        android:id="@+id/etUsername"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="Username"
+        android:layout_height="match_parent"
+        android:text="Press any key . . ."
+        android:textColor="#FFFFFF"
         android:gravity="center"
-        />
-
-    <EditText
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:id="@+id/etPassword"
-        android:hint="Password"
-        android:gravity="center"
-        android:inputType="textPassword"
-        />
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:id="@+id/btnLogin"
-        android:text="LOGIN"
-        />
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:id="@+id/btnSignUp"
-        android:text="SIGN UP"
-        />
-
+        android:textSize="20sp"/>
 
 </LinearLayout>

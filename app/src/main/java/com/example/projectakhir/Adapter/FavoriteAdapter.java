@@ -10,28 +10,33 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectakhir.Favorite.Favotite;
+import com.example.projectakhir.Fragment.FavoriteFragment;
 import com.example.projectakhir.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
 
     private FavoriteListener favoriteListener;
-    private List<Favotite> favotiteList;
+    private ArrayList<Favotite> favotiteList;
 
     public Context context;
 
-    public FavoriteAdapter(FavoriteListener favoriteListener, List<Favotite> favotiteList, Context context) {
+    public FavoriteAdapter(Context context) {
         this.favoriteListener = favoriteListener;
         this.favotiteList = favotiteList;
         this.context = context;
     }
 
-    public List<Favotite> getFavorite(){
+    public FavoriteAdapter(FavoriteFragment favoriteFragment, FavoriteListener favoriteListener) {
+    }
+
+    public ArrayList<Favotite> getFavorite(){
         return favotiteList;
     }
 
-    public void setFavorite(List<Favotite> favorite){
+    public void setFavorite(ArrayList<Favotite> favorite){
         this.favotiteList = favotiteList;
     }
 
@@ -44,7 +49,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FavoriteAdapter.ViewHolder holder, int position) {
         holder.tvDate.setText(getFavorite().get(position).getDate());
         holder.tvHolidays.setText(getFavorite().get(position).getHolidays());
     }

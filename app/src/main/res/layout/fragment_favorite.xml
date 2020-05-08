@@ -3,7 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.FavoriteFragment">
+    tools:context=".Fragment.FavoriteFragment"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="15sp"
+        android:text="Reset Favorite"
+        android:gravity="right"
+        android:textColor="#FF0000"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favorite_cv"
@@ -11,5 +27,7 @@
         android:layout_height="wrap_content"
         tools:listitem="@layout/item_favorite"
         android:layout_margin="10dp"/>
+
+    </LinearLayout>
 
 </FrameLayout>

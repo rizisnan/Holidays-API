@@ -5,10 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.FavoriteFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favorite_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TULISAN"
-        android:textSize="50sp"/>
+        tools:listitem="@layout/item_favorite"
+        android:layout_margin="10dp"/>
 
 </FrameLayout>

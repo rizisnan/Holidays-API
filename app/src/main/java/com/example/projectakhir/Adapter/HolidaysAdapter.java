@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectakhir.Activity.Home;
+import com.example.projectakhir.Favorite.AppDatabase;
+import com.example.projectakhir.Favorite.Favotite;
 import com.example.projectakhir.Fragment.FavoriteFragment;
 import com.example.projectakhir.Fragment.HolidaysFragment;
 import com.example.projectakhir.HolidaysModel.HolidaysItem;
@@ -33,6 +35,7 @@ public class HolidaysAdapter extends RecyclerView.Adapter<HolidaysAdapter.ViewHo
     private ArrayList<HolidaysItem> holidaysItems = new ArrayList<>();
     private Context context;
     private LinearLayout tbFavorite;
+    private AppDatabase appDatabase;
 
     public HolidaysAdapter(Context context) {
         this.context = context;
@@ -56,15 +59,27 @@ public class HolidaysAdapter extends RecyclerView.Adapter<HolidaysAdapter.ViewHo
 //        Format formatter = new SimpleDateFormat(holidaysItems.get(position).getDate());
 //        String date = formatter.format(new Date());
 //        holder.tvHoliday.setText(date);
-        holder.tvType.setText(holidaysItems.get(position).getName());
-        holder.tvMonth.setText(holidaysItems.get(position).getDate());
+        final String Holidays = holidaysItems.get(position).getName();
+        final String Date = holidaysItems.get(position).getDate();
+        holder.tvType.setText(Holidays);
+        holder.tvMonth.setText(Date);
         tbFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                String holidays = Holidays;
+                String date = Date;
+
+                Favotite item = new Favotite();
+                item.setDate(holidays);
+                item.setHolidays(date);
+
+                appDatabase.dao().insertData(item);
+                
             }
         });
     }
+
 
     @Override
     public int getItemCount() {
@@ -72,7 +87,8 @@ public class HolidaysAdapter extends RecyclerView.Adapter<HolidaysAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvHoliday, tvMonth, tvType;
+        TextView tvMonth, tvType;
+        TextView tvDate, tvHolidays;
         CardView cvItem;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,6 +97,11 @@ public class HolidaysAdapter extends RecyclerView.Adapter<HolidaysAdapter.ViewHo
             tvMonth = itemView.findViewById(R.id.month_holiday);
             tvType = itemView.findViewById(R.id.type_holiday);
             tbFavorite = itemView.findViewById(R.id.FavClick);
+
+            appDatabase = AppDatabase.iniDb(context);
+
+            tvDate = itemView.findViewById(R.id.month_holiday_fav);
+            tvHolidays = itemView.findViewById(R.id.type_holiday_fav);
         }
     }
 }

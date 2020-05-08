@@ -47,16 +47,9 @@ public class HolidaysFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_holidays, container, false);
 
-//        tglFavorite = v.findViewById(R.id.toggleButton);
-//        tglFavorite.setOnClickListener((new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-
         return v;
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -73,6 +66,7 @@ public class HolidaysFragment extends Fragment {
         holidayViewModel.getHoliday().observe(this, getHoliday);
 
         rvHolidays.setAdapter(holidaysAdapter);
+
     }
 
     private Observer<ArrayList<HolidaysItem>> getHoliday = new Observer<ArrayList<HolidaysItem>>() {

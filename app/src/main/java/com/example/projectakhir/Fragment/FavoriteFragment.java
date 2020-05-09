@@ -3,6 +3,7 @@ package com.example.projectakhir.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.ContentView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,6 +21,8 @@ import com.example.projectakhir.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.projectakhir.R.layout.*;
 
 
 /**
@@ -40,7 +43,7 @@ public class FavoriteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite, container, false);
+        return inflater.inflate(fragment_favorite, container, false);
 
     }
 
@@ -57,14 +60,13 @@ public class FavoriteFragment extends Fragment {
 
     private void read() {
         list.addAll(appDatabase.dao().getData());
-        appDatabase.dao().getData();
 
         rvFavorite.setLayoutManager(new GridLayoutManager(getContext(),1));
 
         favoriteAdapter = new FavoriteAdapter(getContext());
         favoriteAdapter.notifyDataSetChanged();
 
-        favoriteAdapter.setFavorite(list);
+        favoriteAdapter.setFavoriteList(list);
         rvFavorite.setAdapter(favoriteAdapter);
     }
 }

@@ -29,17 +29,29 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         this.context = context;
     }
 
-    public FavoriteAdapter(FavoriteFragment favoriteFragment, FavoriteListener favoriteListener) {
+    public FavoriteListener getFavoriteListener() {
+        return favoriteListener;
     }
 
-    public List<Favorite> getFavorite(){
-        return (List<Favorite>) favoriteList;
+    public void setFavoriteListener(FavoriteListener favoriteListener) {
+        this.favoriteListener = favoriteListener;
     }
 
-    public void setFavorite(List<Favorite> favorite){
+    public List<Favorite> getFavoriteList() {
+        return favoriteList;
+    }
+
+    public void setFavoriteList(List<Favorite> favoriteList) {
         this.favoriteList = favoriteList;
     }
 
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -50,13 +62,13 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull FavoriteAdapter.ViewHolder holder, int position) {
-        holder.tvDate.setText(getFavorite().get(position).getDate());
-        holder.tvHolidays.setText(getFavorite().get(position).getHolidays());
+        holder.tvDate.setText(getFavoriteList().get(position).getDate());
+        holder.tvHolidays.setText(getFavoriteList().get(position).getHolidays());
     }
 
     @Override
     public int getItemCount() {
-        return getFavorite().size();
+        return getFavoriteList().size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

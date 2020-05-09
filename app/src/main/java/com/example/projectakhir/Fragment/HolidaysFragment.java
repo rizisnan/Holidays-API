@@ -1,7 +1,6 @@
 package com.example.projectakhir.Fragment;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -72,9 +71,10 @@ public class HolidaysFragment extends Fragment {
     private Observer<ArrayList<HolidaysItem>> getHoliday = new Observer<ArrayList<HolidaysItem>>() {
         @Override
         public void onChanged(ArrayList<HolidaysItem> holidaysItems) {
-            if (holidaysItems != null) {
+            if (holidaysItems != null){
                 holidaysAdapter.setData(holidaysItems);
             }
         }
     };
+
 }

@@ -73,7 +73,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return favoriteList().size();
+        return favoriteList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

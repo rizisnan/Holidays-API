@@ -56,8 +56,8 @@ public class FavoriteFragment extends Fragment {
     }
 
     private void read() {
-        list.addAll(appDatabase.dao().getData(list));
-        appDatabase.dao().getData(list);
+        list.addAll(appDatabase.dao().getData());
+        appDatabase.dao().getData();
 
         rvFavorite.setLayoutManager(new GridLayoutManager(getContext(),1));
 

@@ -14,7 +14,7 @@ public interface FavoriteDAO {
     Long insertData(Favorite favorite);
 
     @Query("Select * from favorite")
-    List<Favorite> getData(List<Favorite> list);
+    List<Favorite> getData();
 
     @Update
     int updateData(Favorite item);

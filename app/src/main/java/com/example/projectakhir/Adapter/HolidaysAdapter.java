@@ -44,9 +44,6 @@ public class HolidaysAdapter extends RecyclerView.Adapter<HolidaysAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull final HolidaysAdapter.ViewHolder holder, int position) {
-//        Format formatter = new SimpleDateFormat(holidaysItems.get(position).getDate());
-//        String date = formatter.format(new Date());
-//        holder.tvHoliday.setText(date);
         final String Holidays = holidaysItems.get(position).getName();
         final String Date = holidaysItems.get(position).getDate();
         holder.tvType.setText(Holidays);

@@ -21,6 +21,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     private FavoriteListener favoriteListener;
     private List<Favorite> favoriteList;
+    private TextView btnReset;
 
     public Context context;
 
@@ -67,8 +68,15 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull FavoriteAdapter.ViewHolder holder, int position) {
-        holder.tvDate.setText(getFavoriteList().get(position).getDate());
-        holder.tvHolidays.setText(getFavoriteList().get(position).getHolidays());
+        holder.tvDate.setText(getFavoriteList().get(position).getHolidays());
+        holder.tvHolidays.setText(getFavoriteList().get(position).getDate());
+
+//        btnReset.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
     }
 
     @Override
@@ -83,6 +91,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            btnReset = itemView.findViewById(R.id.btnReset);
             tvDate = itemView.findViewById(R.id.month_holiday_fav);
             tvHolidays = itemView.findViewById(R.id.type_holiday_fav);
         }

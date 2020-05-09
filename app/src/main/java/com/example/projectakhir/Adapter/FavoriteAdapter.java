@@ -14,6 +14,7 @@ import com.example.projectakhir.Fragment.FavoriteFragment;
 import com.example.projectakhir.R;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
@@ -27,6 +28,10 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         this.favoriteListener = favoriteListener;
         this.favoriteList = favoriteList;
         this.context = context;
+    }
+
+    public FavoriteAdapter(List<Favorite> favoriteList) {
+        this.favoriteList = favoriteList;
     }
 
     public FavoriteListener getFavoriteListener() {
@@ -68,7 +73,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return getFavoriteList().size();
+        return favoriteList().size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
